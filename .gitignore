@@ -6,7 +6,7 @@
 /core/build
 /.idea
 /.gradle
-/.DS_Store
+.DS_Store
 gradlew
 gradlew.bat
 
