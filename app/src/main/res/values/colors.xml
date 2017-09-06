@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#EF6C00</color>
+    <color name="colorAccent">#FF9800</color>
+
+    <color name="background_white">#fafafa</color>
+    <color name="background_gray">#eeeeee</color>
+    <color name="background_holder">#767676</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="transparent_gray">#28000000</color>
+</resources>

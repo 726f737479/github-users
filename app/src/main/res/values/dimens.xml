@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <dimen name="ic_size">40dp</dimen>
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="space_content">8dp</dimen>
+    <dimen name="space_text">2dp</dimen>
+
+    <dimen name="divider">1dp</dimen>
+
+    <dimen name="height_searchbar">56dp</dimen>
+
+    <dimen name="elevation_content">2dp</dimen>
+    <dimen name="elevation_bar">6dp</dimen>
+
+    <dimen name="height_header">252dp</dimen>
+</resources>

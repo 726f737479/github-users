@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="action"
+            type="com.example.rosty.githubusers.presentation.base.adapter.ItemAction"/>
+
+        <variable
+            name="isLast"
+            type="Boolean"/>
+
+        <variable
+            name="item"
+            type="com.example.rosty.githubusers.model.User"/>
+    </data>
+
+    <FrameLayout
+        android:tag="@{item}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_white"
+        android:transitionName="@{item.id}"
+        android:animateLayoutChanges="true"
+        android:elevation="@dimen/elevation_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{v -> action.invoke(item)}">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="@dimen/ic_size"
+                android:layout_height="@dimen/ic_size"
+                android:layout_margin="@dimen/margin"
+                android:background="@color/background_holder"
+                android:scaleType="centerCrop"
+                android:imageUrl="@{item.avatarUrl}"/>
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img"
+                android:layout_toEndOf="@+id/img"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/margin"
+                android:text="@{item.login}"
+                tools:text="Title"/>
+
+            <TextView
+                android:id="@+id/publisher"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img"
+                android:layout_toEndOf="@+id/img"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/margin"
+                android:text="@{item.url}"
+                tools:text="Publisher"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_alignParentBottom="true"
+                android:background="@color/background_gray"
+                android:visibility="@{!isLast ? View.VISIBLE : View.GONE}"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.rosty.githubusers.presentation.search.SearchViewModel.State"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.example.rosty.githubusers.presentation.search.SearchViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_gray">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"/>
+
+                <EditText
+                    android:id="@+id/et_query"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/space_content"
+                    android:background="@drawable/bg_search"
+                    android:elevation="@dimen/elevation_content"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_search"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/margin"
+                    android:paddingStart="@dimen/margin"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/users"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{vm.state == State.RESULT ? View.VISIBLE : View.GONE }"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/item_user"/>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:visibility="@{vm.state == State.PROGRESS ? View.VISIBLE : View.GONE }"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{vm.state == State.ERROR ? View.VISIBLE : View.GONE }">
+
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_ooooppss"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/text_something_wrong"/>
+
+                <Button
+                    android:id="@+id/btn_retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:text="@string/action_retry"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{vm.state == State.RESULT &amp;&amp; vm.users.isEmpty ? View.VISIBLE : View.GONE }">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_ooooppss"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/text_no_result_found"/>
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

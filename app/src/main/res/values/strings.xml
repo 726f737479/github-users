@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GitHubUsers</string>
+
+    <string name="hint_search">Search</string>
+
+    <string name="title_ooooppss">Ooooppss!</string>
+    <string name="title_ingredients">Ingredients:</string>
+
+    <string name="text_something_wrong">Something went wrong</string>
+    <string name="text_rank">Rank:</string>
+    <string name="text_no_result_found">No result found</string>
+    <string name="text_no_webview">You have no WebView applications installed</string>
+    <string name="text_load_error">Failed to load\n</string>
+
+    <string name="action_instructions">View instructions</string>
+    <string name="action_original">View original</string>
+    <string name="action_retry">Retry</string>
+    <string name="title_profile">Profile</string>
+    <string name="text_followers">Followers</string>
+    <string name="text_following">Following</string>
+    <string name="text_public_repos">Public repos</string>
+    <string name="text_public_gists">Public gists</string>
+    <string name="text_no_bio">User have no bio information.</string>
+    <string name="text_loading_error">Loading error, please check your internet connection.</string>
+
+</resources>
